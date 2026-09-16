@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Tatiana Ramírez — Diseño gráfico, E-learning y Multimedia</title>
+<meta name="description" content="Portafolio de Tatiana Ramírez Hernández — diseño gráfico, e-learning, multimedia, motion graphics e interactividad.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root{
+  /* Paleta cromática extraída del marco de la imagen */
+  --burgundy: #5e0d2d;
+  --burgundy-dark: #3a0519;
+  --burgundy-light: #7b183f;
+  --navy: #1a2636;
+  --navy-dark: #0f1722;
+  --bg: #f9f9fa;
+  --paper: #ffffff;
+  --ink: #141619;
+  --muted: #646a73;
+  --line: #e3e6eb;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",Arial,sans-serif}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+.container{max-width:1320px;margin:auto;padding:0 34px}
+header{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:100}
+.brand{font-family:"Space Grotesk";font-weight:700;font-size:20px;letter-spacing:-.05em;color:var(--burgundy);cursor:pointer}
+.brand span{color:var(--navy)}
+.nav{display:flex;gap:30px;font-size:13px;font-weight:600}
+.nav a:hover{color:var(--burgundy)}
+.status{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--burgundy)}
+
+/* HERO */
+.hero{padding:76px 0 90px;display:grid;grid-template-columns:1.12fr .88fr;gap:70px;align-items:end}
+.kicker{font-size:11px;letter-spacing:.17em;text-transform:uppercase;color:var(--burgundy);font-weight:700;margin-bottom:22px}
+h1{font-family:"Space Grotesk";font-size:clamp(60px,8vw,115px);line-height:.88;letter-spacing:-.08em;margin:0 0 34px;font-weight:600;color:var(--navy-dark)}
+.hero-copy{max-width:620px;font-size:19px;line-height:1.6;color:var(--muted);margin:0 0 34px}
+.hero-links{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;padding:13px 22px;background:var(--burgundy);color:#fff;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:.2s ease}
+.btn:hover{background:var(--burgundy-dark);color:#fff}
+.btn.secondary{background:transparent;color:var(--navy);border:1px solid var(--navy)}
+.btn.secondary:hover{background:var(--navy);color:#fff}
+.hero-side{border-left:2px solid var(--burgundy);padding-left:42px}
+.hero-side .biglabel{font-family:"Space Grotesk";font-size:38px;line-height:1.05;letter-spacing:-.05em;margin-bottom:24px;color:var(--navy)}
+.hero-side p{color:var(--muted);line-height:1.7;font-size:14px;max-width:390px}
+.hero-side ul{list-style:none;padding:0;margin:30px 0 0;border-top:1px solid var(--line)}
+.hero-side li{padding:13px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;font-size:13px}
+.hero-side li span:last-child{color:var(--burgundy);font-weight:700}
+
+/* TRABAJO HOME */
+.section{padding:75px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:28px}
+.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--burgundy);font-weight:700}
+h2{font-family:"Space Grotesk";font-weight:600;font-size:46px;letter-spacing:-.06em;margin:8px 0 0;color:var(--navy)}
+.smallnote{font-size:12px;color:var(--muted)}
+
+.feature{display:grid;grid-template-columns:1.5fr .5fr;min-height:480px;background:var(--paper);border:1px solid var(--line);overflow:hidden;cursor:pointer;transition:.25s ease}
+.feature:hover{border-color:var(--burgundy);box-shadow:0 20px 40px rgba(94,13,45,.08)}
+.feature-media{min-height:480px;position:relative;background:#eee}
+.feature-media:after{content:"01";position:absolute;left:20px;top:20px;color:#fff;background:var(--burgundy);padding:7px 11px;font:700 11px "Space Grotesk"}
+.feature-info{padding:42px 38px;display:flex;flex-direction:column;justify-content:space-between}
+.feature-info h3{font-family:"Space Grotesk";font-size:36px;line-height:1;letter-spacing:-.05em;margin:0 0 16px;color:var(--navy)}
+.feature-info p{color:var(--muted);font-size:14px;line-height:1.65}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:24px}
+.tag{border:1px solid var(--line);padding:6px 10px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;background:var(--bg)}
+.view{font-size:13px;font-weight:700;display:inline-flex;gap:10px;align-items:center;color:var(--burgundy)}
+
+.work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+.project{background:var(--paper);border:1px solid var(--line);overflow:hidden;transition:.25s ease;cursor:pointer}
+.project:hover{transform:translateY(-4px);border-color:var(--navy);box-shadow:0 18px 40px rgba(26,38,54,.1)}
+.project:nth-child(1){grid-column:span 7}.project:nth-child(2){grid-column:span 5}
+.project:nth-child(3){grid-column:span 5}.project:nth-child(4){grid-column:span 7}
+.project:nth-child(5){grid-column:span 12}
+.project-media{height:340px;background:#eee;position:relative;overflow:hidden}
+.project-media img{transition:transform .5s ease}
+.project:hover .project-media img{transform:scale(1.03)}
+.project-info{padding:22px 24px;display:grid;grid-template-columns:1fr auto;gap:7px}
+.project-info h3{font-family:"Space Grotesk";font-size:22px;letter-spacing:-.04em;margin:0;color:var(--navy)}
+.project-info p{grid-column:1;color:var(--muted);font-size:13px;margin:4px 0 0;line-height:1.5}
+.project-info .arrow{grid-column:2;grid-row:1/3;color:var(--burgundy);font-size:22px}
+
+/* PERFIL & CONTACTO */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.about-copy{font-size:19px;line-height:1.7;color:var(--navy);margin:0}
+.about-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);margin-top:34px;border:1px solid var(--line)}
+.about-grid div{background:var(--paper);padding:22px}
+.about-grid strong{display:block;font-size:14px;margin-bottom:6px;color:var(--burgundy)}
+.about-grid span{font-size:13px;color:var(--muted);line-height:1.5;display:block}
+.contact{padding:100px 0 80px}
+.contact h2{font-size:clamp(50px,7vw,95px);line-height:.92;max-width:900px;color:var(--navy-dark)}
+.contact-row{display:flex;justify-content:space-between;align-items:end;border-top:1px solid var(--line);margin-top:48px;padding-top:24px}
+.contact-row p{margin:0;color:var(--muted);font-size:13px}
+.contact-links{display:flex;gap:24px;font-size:13px;font-weight:600}
+.contact-links a:hover{color:var(--burgundy)}
+footer{border-top:1px solid var(--line);padding:26px 0;display:flex;justify-content:space-between;font-size:12px;color:var(--muted);background:var(--paper)}
+
+/* =======================================================
+   ESTRUCTURA DE PÁGINA INTERNA ESTILO BEHANCE
+======================================================= */
+#project-view{display:none;background:#f3f4f6;min-height:100vh}
+.behance-bar{background:var(--paper);border-bottom:1px solid var(--line);padding:14px 34px;position:sticky;top:0;z-index:99;display:flex;justify-content:space-between;align-items:center}
+.back-btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--burgundy);cursor:pointer}
+.back-btn:hover{color:var(--burgundy-dark)}
+.behance-bar-title{font-family:"Space Grotesk";font-weight:700;font-size:16px;color:var(--navy)}
+
+.b-hero-cover{width:100%;height:65vh;min-height:420px;background:var(--navy);position:relative}
+.b-hero-cover img{width:100%;height:100%;object-fit:cover;opacity:.9}
+
+.b-layout{max-width:1200px;margin:40px auto;padding:0 24px;display:grid;grid-template-columns:320px 1fr;gap:40px;align-items:start}
+.b-meta{background:var(--paper);padding:30px;border:1px solid var(--line);position:sticky;top:100px}
+.b-meta h1{font-size:32px;line-height:1.1;margin:0 0 16px;color:var(--navy);letter-spacing:-.04em}
+.b-meta-category{color:var(--burgundy);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+.b-meta p{font-size:14px;line-height:1.6;color:var(--muted);margin:0 0 24px}
+.b-spec{border-top:1px solid var(--line);padding:12px 0;display:flex;flex-direction:column;gap:3px;font-size:12px}
+.b-spec strong{color:var(--navy);text-transform:uppercase;font-size:11px;letter-spacing:.05em}
+.b-spec span{color:var(--muted)}
+
+/* Muro vertical continuo estilo Behance */
+.b-content-feed{display:flex;flex-direction:column;gap:30px}
+.b-block{background:var(--paper);border:1px solid var(--line);overflow:hidden}
+.b-block img{width:100%;height:auto;display:block}
+.b-caption{padding:20px 24px;font-size:14px;color:var(--muted);border-top:1px solid var(--line);line-height:1.6;background:#fafafa}
+.b-caption strong{color:var(--navy)}
+
+.b-footer-nav{border-top:1px solid var(--line);background:var(--paper);padding:50px 0;margin-top:60px;text-align:center}
+
+@media(max-width:960px){
+  .b-layout{grid-template-columns:1fr;gap:24px}
+  .b-meta{position:static}
+  .hero{grid-template-columns:1fr;padding:50px 0}
+  .hero-side{border-left:0;border-top:2px solid var(--burgundy);padding:28px 0 0}
+  .feature{grid-template-columns:1fr}.feature-media{min-height:300px}
+  .project:nth-child(n){grid-column:span 12}
+  .about{grid-template-columns:1fr;gap:30px}
+}
+</style>
+</head>
+<body>
+
+<!-- VISTA PRINCIPAL (HOME) -->
+<div id="main-view">
+  <div class="container">
+    <header>
+      <div class="brand" onclick="showHome()">TR <span>/ PORTFOLIO</span></div>
+      <nav class="nav">
+        <a href="#work">Trabajo</a>
+        <a href="#perfil">Perfil</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <div class="status"><i class="dot"></i> Disponible para proyectos</div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="kicker">Diseñadora gráfica · E-learning · Multimedia</div>
+        <h1>Tatiana<br>Ramírez.</h1>
+        <p class="hero-copy">Diseño experiencias visuales, contenidos educativos y piezas multimedia donde la pedagogía, la interactividad y la composición visual trabajan en equilibrio.</p>
+        <div class="hero-links">
+          <a class="btn" href="#work">Explorar proyectos ↓</a>
+          <a class="btn secondary" href="https://www.behance.net/ratik" target="_blank">Behance oficial ↗</a>
+        </div>
+      </div>
+      <aside class="hero-side">
+        <div class="biglabel">Diseño que<br>comunica.</div>
+        <p>Especializada en la diagramación de ambientes virtuales de aprendizaje, campus institucionales, narrativa interactiva y diseño audiovisual.</p>
+        <ul>
+          <li><span>E-learning & Ambientes Virtuales</span><span>01</span></li>
+          <li><span>Diseño multimedia & UI/UX</span><span>02</span></li>
+          <li><span>Motion graphics & Audiovisual</span><span>03</span></li>
+          <li><span>Gran formato e ilustración</span><span>04</span></li>
+        </ul>
+      </aside>
+    </section>
+
+    <section id="work" class="section">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">01 / Selección de proyectos</div>
+          <h2>Trabajo seleccionado</h2>
+        </div>
+        <div class="smallnote">Diagramación interna estilo Behance</div>
+      </div>
+
+      <!-- Feature: Universidad Libre -->
+      <div class="feature" onclick="loadProject('unilibre')">
+        <div class="feature-media">
+          <img src="https://mir-s3-cdn-cf.behance.net/projects/404/e5ba82255785373.Y3JvcCwxMDg2LDg0OSwwLDA.jpg" alt="Universidad Libre — Campus Virtual">
+        </div>
+        <div class="feature-info">
+          <div>
+            <div class="eyebrow">Proyecto 01</div>
+            <h3>Universidad Libre</h3>
+            <p>Diagramación y conceptualización de asignaturas completas para el Campus Virtual UniLibre. Enfoque integral en eLearning, consistencia de marca y usabilidad UI/UX para el estudiante.</p>
+            <div class="tags">
+              <span class="tag">Campus virtual</span>
+              <span class="tag">eLearning</span>
+              <span class="tag">UI/UX</span>
+            </div>
+          </div>
+          <div class="view">Ver presentación del proyecto <span class="arrow">→</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="work-grid">
+        <!-- 02 Unisanitas -->
+        <div class="project" onclick="loadProject('unisanitas')">
+          <div class="project-media">
+            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/5cecd4244730815.Y3JvcCw0NzIsMzY5LDM1NywxNDI.jpg" alt="Unisanitas Medios Educativos">
+          </div>
+          <div class="project-info">
+            <div>
+              <h3>Unisanitas Medios Educativos</h3>
+              <p>Desarrollo visual para Moodle, módulos Articulate Storyline, recursos interactivos y piezas de apoyo.</p>
+            </div>
+            <span class="arrow">→</span>
+          </div>
+        </div>
+
+        <!-- 03 AVA EAN -->
+        <div class="project" onclick="loadProject('ean')">
+          <div class="project-media">
+            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/b2419a242146511.Y3JvcCwxMDMzLDgwOCwyNSwyMA.jpg" alt="Diseño para Ambientes Virtuales de Aprendizaje">
+          </div>
+          <div class="project-info">
+            <div>
+              <h3>Ambientes Virtuales de Aprendizaje</h3>
+              <p>Universidad EAN · Producción y estandarización en H5P, Genially y recursos nativos en Canvas.</p>
+            </div>
+            <span class="arrow">→</span>
+          </div>
+        </div>
+
+        <!-- 04 Gran Formato -->
+        <div class="project" onclick="loadProject('granformato')">
+          <div class="project-media">
+            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/2c26c2238376381.Y3JvcCwxMTgwLDkyMiw4LDA.jpg" alt="Gran Formato">
+          </div>
+          <div class="project-info">
+            <div>
+              <h3>Gran Formato & Ilustración</h3>
+              <p>Composiciones monumentales, tifos para estadio y arte gráfico vectorial de alta escala.</p>
+            </div>
+            <span class="arrow">→</span>
+          </div>
+        </div>
+
+        <!-- 05 Motion & GUI -->
+        <div class="project" onclick="loadProject('motion')">
+          <div class="project-media">
+            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/86c53877828995.Y3JvcCw0MDQsMzE2LDIwMSwxMjk.jpg" alt="Reels y Motion Graphics">
+          </div>
+          <div class="project-info">
+            <div>
+              <h3>Reels & Motion Graphics</h3>
+              <p>Cápsulas animadas en After Effects y piezas pedagógicas audiovisuales con animación interactiva.</p>
+            </div>
+            <span class="arrow">→</span>
+          </div>
+        </div>
+
+        <!-- 06 Demo Ayuda GUI -->
+        <div class="project" onclick="loadProject('gui')">
+          <div class="project-media">
+            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/558f5f71866327.Y3JvcCw4MDgsNjMyLDAsMA.png" alt="Demo Ayuda GUI">
+          </div>
+          <div class="project-info">
+            <div>
+              <h3>Demo Ayuda GUI</h3>
+              <p>Arquitectura de información visual, layout de interfaz educativa y prototipado funcional.</p>
+            </div>
+            <span class="arrow">→</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="perfil" class="section about">
+      <div>
+        <div class="eyebrow">02 / Perfil</div>
+        <h2>Entre lo visual y lo pedagógico.</h2>
+      </div>
+      <div>
+        <p class="about-copy">Diseñadora gráfica con sólida experiencia articulando pedagogía y estética visual. El objetivo central es estructurar la información compleja para transformarla en piezas instruccionales nítidas, usables e interactivas.</p>
+        <div class="about-grid">
+          <div>
+            <strong>E-learning & LMS</strong>
+            <span>Estructuración de entornos en Canvas, Moodle, Articulate Storyline y Rise 360.</span>
+          </div>
+          <div>
+            <strong>Diseño Instruccional Visual</strong>
+            <span>Infografías pedagógicas, diagramación de módulos y recursos H5P.</span>
+          </div>
+          <div>
+            <strong>Motion Graphics</strong>
+            <span>Animación explicativa, microlearning en video y narrativa audiovisual.</span>
+          </div>
+          <div>
+            <strong>UI / Diseño Gráfico</strong>
+            <span>Identidad institucional, diseño de interfaces de aprendizaje y gran formato.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="contact">
+      <div class="eyebrow">03 / Contacto</div>
+      <h2>Construyamos proyectos de alto impacto.</h2>
+      <div class="contact-row">
+        <p>Bogotá, Colombia · Disponible para proyectos remotos e institucionales</p>
+        <div class="contact-links">
+          <a href="https://www.behance.net/ratik" target="_blank">Behance ↗</a>
+          <a href="https://vimeo.com/tatianamg" target="_blank">Vimeo ↗</a>
+          <a href="https://linkedin.com" target="_blank">LinkedIn ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>© 2026 Tatiana Ramírez Hernández</span>
+      <span>Diseño Gráfico · E-learning · Experiencias Digitales</span>
+    </footer>
+  </div>
+</div>
+
+<!-- =======================================================
+     VISTA INTERNA DEL PROYECTO (DIAGRAMACIÓN BEHANCE)
+======================================================= -->
+<div id="project-view">
+  <div class="behance-bar">
+    <div class="back-btn" onclick="showHome()">← Volver al portafolio</div>
+    <div class="behance-bar-title" id="p-bar-title">Universidad Libre</div>
+    <div style="width:70px"></div>
+  </div>
+
+  <div class="b-hero-cover" id="p-hero">
+    <img id="p-cover-img" src="" alt="Portada del proyecto">
+  </div>
+
+  <div class="b-layout">
+    <!-- Columna Ficha Lateral -->
+    <aside class="b-meta">
+      <div class="b-meta-category" id="p-category">E-LEARNING / UI DESIGN</div>
+      <h1 id="p-title">Universidad Libre</h1>
+      <p id="p-desc">Descripción del proyecto...</p>
+
+      <div class="b-spec">
+        <strong>Rol & Especialidad</strong>
+        <span id="p-role">Diseño gráfico y diagramación e-learning</span>
+      </div>
+      <div class="b-spec">
+        <strong>Herramientas / Plataformas</strong>
+        <span id="p-tools">Moodle, Illustrator, Photoshop</span>
+      </div>
+      <div class="b-spec">
+        <strong>Enfoque</strong>
+        <span id="p-year">Virtualización educativa y UX</span>
+      </div>
+
+      <button class="btn" style="width:100%;margin-top:24px;justify-content:center" onclick="showHome()">Volver al listado</button>
+    </aside>
+
+    <!-- Muro de Contenido Vertical Continuo (Flujo Behance) -->
+    <main class="b-content-feed" id="p-feed">
+      <!-- Los bloques se inyectan dinámicamente vía JavaScript -->
+    </main>
+  </div>
+
+  <div class="b-footer-nav">
+    <div class="eyebrow" style="margin-bottom:12px">Siguiente paso</div>
+    <h3 style="font-family:'Space Grotesk';font-size:28px;margin:0 0 20px;color:var(--navy)">¿Quieres revisar más proyectos?</h3>
+    <button class="btn" onclick="showHome()">Explorar todos los proyectos</button>
+  </div>
+</div>
+
+<script>
+// Base de datos de proyectos internos (sin dependencias externas)
+const projectsData = {
+  unilibre: {
+    title: "Universidad Libre — Campus Virtual",
+    category: "Campus Virtual / E-Learning / UI",
+    role: "Diagramación educativa y diseño de interfaz",
+    tools: "Campus Virtual LMS, Suite Adobe, UI Design",
+    focus: "Arquitectura visual de contenidos y virtualización",
+    cover: "https://mir-s3-cdn-cf.behance.net/projects/404/e5ba82255785373.Y3JvcCwxMDg2LDg0OSwwLDA.jpg",
+    desc: "Estructuración visual y diagramación de asignaturas académicas para los entornos virtuales de la Universidad Libre. Se crearon interfaces limpias que facilitan la retención pedagógica y estandarizan la identidad institucional en campus virtuales.",
+    blocks: [
+      {
+        img: "https://mir-s3-cdn-cf.behance.net/projects/404/e5ba82255785373.Y3JvcCwxMDg2LDg0OSwwLDA.jpg",
+        caption: "<strong>Conceptualización global:</strong> Definición de layouts de bienvenida, banners modulares y navegación simplificada para el estudiante."
+      },
+      {
+        img: "https://mir-s3-cdn-cf.behance.net/projects/404/b2419a242146511.Y3JvcCwxMDMzLDgwOCwyNSwyMA.jpg",
+        caption: "<strong>Guías visuales y micro-actividades:</strong> Componentes visuales diseñados para desglosar lecturas densas en esquemas progresivos."
+      }
+    ]
+  },
+  unisanitas: {
+    title: "Unisanitas Medios Educativos",
+    category: "Recursos Educativos / LMS",
+    role: "Producción de recursos interactivos y piezas digitales",
+    tools: "Moodle, Articulate Storyline, Illustrator",
+    focus: "Salud, ciencias y educación superior",
+    cover: "https://mir-s3-cdn-cf.behance.net/projects/404/5cecd4244730815.Y3JvcCw0NzIsMzY5LDM1NywxNDI.jpg",
+    desc: "Desarrollo multiformato de medios educativos para programas universitarios del área de la salud. Incluye diseño editorial interactivo, infografías vectoriales, recursos SCORM y piezas institucionales.",
+    blocks: [
+      {
+        img: "https://mir-s3-cdn-cf.behance.net/projects/404/5cecd4244730815.Y3JvcCw0NzIsMzY5LDM1NywxNDI.jpg",
+        caption: "<strong>Kit de módulos interactivos:</strong> Integración en Moodle con micro-evaluaciones e infografías clínicas claras."
+      }
+    ]
+  },
+  ean: {
+    title: "Ambientes Virtuales de Aprendizaje",
+    category: "AVA / Canvas LMS / Interactividad",
+    role: "Diseño instruccional visual y armado de aulas",
+    tools: "Canvas LMS, Genially, H5P",
+    focus: "Experiencias interactivas de aprendizaje",
+    cover: "https://mir-s3-cdn-cf.behance.net/projects/404/b2419a242146511.Y3JvcCwxMDMzLDgwOCwyNSwyMA.jpg",
+    desc: "Construcción de módulos y rutas de formación en Canvas LMS empleando integraciones con H5P y Genially. El reto radicó en generar ritmos dinámicos de estudio para evitar la fatiga cognitiva del estudiante.",
+    blocks: [
+      {
+        img: "https://mir-s3-cdn-cf.behance.net/projects/404/b2419a242146511.Y3JvcCwxMDMzLDgwOCwyNSwyMA.jpg",
+        caption: "<strong>Plantillas modulares:</strong> Recursos reutilizables y adaptables a distintas cátedras con navegación intuitiva."
+      }
+    ]
+  },
+  granformato: {
+    title: "Gran Formato & Expresión Gráfica",
+    category: "Ilustración / Gran Escala / Identidad",
+    role: "Ilustración vectorial y preparación para impresión monumental",
+    tools: "Adobe Illustrator, Photoshop",
+    focus: "Impacto visual y arte a gran escala",
+    cover: "https://mir-s3-cdn-cf.behance.net/projects/404/2c26c2238376381.Y3JvcCwxMTgwLDkyMiw4LDA.jpg",
+    desc: "Piezas de diseño e ilustración adaptadas a escalas colosales (tifos y estadios). Cuidado riguroso del detalle anatómico, la proporción arquitectónica y la traslación de vectores a lienzos de tela gigantescos.",
+    blocks: [
+      {
+        img: "https://mir-s3-cdn-cf.behance.net/projects/404/2c26c2238376381.Y3JvcCwxMTgwLDkyMiw4LDA.jpg",
+        caption: "<strong>Desarrollo monumental:</strong> Trabajo de escala, sombras y legibilidad óptica a distancia."
+      }
+    ]
+  },
+  motion: {
+    title: "Reels & Animación Audiovisual",
+    category: "Motion Graphics / Animación 2D",
+    role: "Animación, guion técnico y composición",
+    tools: "After Effects, Cinema 4D, Premiere Pro",
+    focus: "Narrativa visual pedagógica y promocional",
+    cover: "https://mir-s3-cdn-cf.behance.net/projects/404/86c53877828995.Y3JvcCw0MDQsMzE2LDIwMSwxMjk.jpg",
+    desc: "Compilación de animaciones, motion graphics e intros temáticas. Enfoque en la síntesis de conceptos mediante movimiento fluido, tipografía cinética y ritmo audiovisual.",
+    blocks: [
+      {
+        img: "https://mir-s3-cdn-cf.behance.net/projects/404/86c53877828995.Y3JvcCw0MDQsMzE2LDIwMSwxMjk.jpg",
+        caption: "<strong>Fotogramas clave:</strong> Dinamismo y fluidez para videos explicativos y microlearning."
+      }
+    ]
+  },
+  gui: {
+    title: "Demo Ayuda GUI",
+    category: "Interfaz / Guías de Usuario / Multimedia",
+    role: "Diseño UI y recursos gráficos de navegación",
+    tools: "Adobe XD, Illustrator",
+    focus: "Usabilidad y asistencia paso a paso",
+    cover: "https://mir-s3-cdn-cf.behance.net/projects/404/558f5f71866327.Y3JvcCw4MDgsNjMyLDAsMA.png",
+    desc: "Diseño de interfaz para un sistema interactivo de tutoriales y guías de uso paso a paso. Se estructuraron jerarquías claras de botones, mapas de navegación y pantallas explicativas.",
+    blocks: [
+      {
+        img: "https://mir-s3-cdn-cf.behance.net/projects/404/558f5f71866327.Y3JvcCw4MDgsNjMyLDAsMA.png",
+        caption: "<strong>Estructura de interfaz:</strong> Módulos de consulta rápida y orientación para plataformas complejas."
+      }
+    ]
+  }
+};
+
+function loadProject(key) {
+  const data = projectsData[key];
+  if(!data) return;
+
+  // Llenar metadatos
+  document.getElementById('p-bar-title').innerText = data.title;
+  document.getElementById('p-title').innerText = data.title;
+  document.getElementById('p-category').innerText = data.category;
+  document.getElementById('p-desc').innerText = data.desc;
+  document.getElementById('p-role').innerText = data.role;
+  document.getElementById('p-tools').innerText = data.tools;
+  document.getElementById('p-year').innerText = data.focus;
+  document.getElementById('p-cover-img').src = data.cover;
+
+  // Construir feed vertical estilo Behance
+  const feed = document.getElementById('p-feed');
+  feed.innerHTML = '';
+
+  data.blocks.forEach(block => {
+    const div = document.createElement('div');
+    div.className = 'b-block';
+    div.innerHTML = `
+      <img src="${block.img}" alt="${data.title}">
+      <div class="b-caption">${block.caption}</div>
+    `;
+    feed.appendChild(div);
+  });
+
+  // Alternar vista
+  document.getElementById('main-view').style.display = 'none';
+  document.getElementById('project-view').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+function showHome() {
+  document.getElementById('project-view').style.display = 'none';
+  document.getElementById('main-view').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
