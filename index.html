@@ -15,136 +15,374 @@
   --burgundy-light: #7b183f;
   --navy: #1a2636;
   --navy-dark: #0f1722;
-  --bg: #f9f9fa;
+  --bg: #f5f6f8;
   --paper: #ffffff;
   --ink: #141619;
-  --muted: #646a73;
-  --line: #e3e6eb;
+  --muted: #5e6570;
+  --line: #e1e4ea;
 }
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",Arial,sans-serif}
 a{text-decoration:none;color:inherit}
-img{display:block;width:100%;height:100%;object-fit:cover}
+img{display:block;width:100%;height:100%}
 
 .container{max-width:1320px;margin:auto;padding:0 34px}
-header{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:100}
-.brand{font-family:"Space Grotesk";font-weight:700;font-size:20px;letter-spacing:-.05em;color:var(--burgundy);cursor:pointer}
+header{height:80px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:100}
+.brand{font-family:"Space Grotesk";font-weight:700;font-size:19px;letter-spacing:-.04em;color:var(--burgundy);cursor:pointer}
 .brand span{color:var(--navy)}
 .nav{display:flex;gap:30px;font-size:13px;font-weight:600}
 .nav a:hover{color:var(--burgundy)}
 .status{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--burgundy)}
 
-/* HERO */
-.hero{padding:76px 0 90px;display:grid;grid-template-columns:1.12fr .88fr;gap:70px;align-items:end}
-.kicker{font-size:11px;letter-spacing:.17em;text-transform:uppercase;color:var(--burgundy);font-weight:700;margin-bottom:22px}
-h1{font-family:"Space Grotesk";font-size:clamp(60px,8vw,115px);line-height:.88;letter-spacing:-.08em;margin:0 0 34px;font-weight:600;color:var(--navy-dark)}
-.hero-copy{max-width:620px;font-size:19px;line-height:1.6;color:var(--muted);margin:0 0 34px}
+/* =======================================================
+   HERO CON DIFERENCIACIÓN CROMÁTICA & MOTION GRAPHICS
+======================================================= */
+.hero-wrapper{
+  margin: 36px 0 70px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  border: 1px solid var(--line);
+  box-shadow: 0 15px 35px rgba(26,38,54,.04);
+  background: var(--paper);
+  overflow: hidden;
+}
+
+/* Columna Izquierda: Tema Oscuro + Elementos Motion Graphics */
+.hero-main{
+  position: relative;
+  background: linear-gradient(145deg, var(--navy) 0%, #121a24 100%);
+  color: #fff;
+  padding: 64px 50px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Elementos gráficos flotantes estilo Motion Graphics */
+.motion-elem{
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+.m-circle{
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 2px dashed rgba(255,255,255,0.12);
+  top: -40px;
+  right: -30px;
+  animation: rotateSlow 26s linear infinite;
+}
+.m-ring{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid var(--burgundy-light);
+  bottom: 25px;
+  right: 60px;
+  opacity: 0.6;
+}
+.m-triangles{
+  left: 35px;
+  top: 30px;
+  display: flex;
+  gap: 6px;
+}
+.m-tri{
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 9px solid var(--burgundy-light);
+  opacity: 0.85;
+}
+.m-line-node{
+  bottom: 35px;
+  left: 45px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.m-line-node .h-line{
+  width: 70px;
+  height: 2px;
+  background: rgba(255,255,255,0.25);
+}
+.m-line-node .h-diamond{
+  width: 9px;
+  height: 9px;
+  background: var(--burgundy-light);
+  transform: rotate(45deg);
+}
+
+@keyframes rotateSlow{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+
+.hero-content{
+  position: relative;
+  z-index: 2;
+}
+.kicker{
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #d17598;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+/* Reducción controlada del tamaño del nombre */
+h1.hero-title{
+  font-family: "Space Grotesk";
+  font-size: clamp(38px, 4.5vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -.05em;
+  margin: 0 0 20px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.hero-copy{
+  max-width: 540px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #b7c0cc;
+  margin: 0 0 32px;
+}
 .hero-links{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;padding:13px 22px;background:var(--burgundy);color:#fff;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:.2s ease}
-.btn:hover{background:var(--burgundy-dark);color:#fff}
-.btn.secondary{background:transparent;color:var(--navy);border:1px solid var(--navy)}
-.btn.secondary:hover{background:var(--navy);color:#fff}
-.hero-side{border-left:2px solid var(--burgundy);padding-left:42px}
-.hero-side .biglabel{font-family:"Space Grotesk";font-size:38px;line-height:1.05;letter-spacing:-.05em;margin-bottom:24px;color:var(--navy)}
-.hero-side p{color:var(--muted);line-height:1.7;font-size:14px;max-width:390px}
-.hero-side ul{list-style:none;padding:0;margin:30px 0 0;border-top:1px solid var(--line)}
+.btn{
+  display: inline-flex;
+  align-items: center;
+  padding: 13px 22px;
+  background: var(--burgundy);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid var(--burgundy);
+  cursor: pointer;
+  transition: .2s ease;
+}
+.btn:hover{background: var(--burgundy-dark);border-color:var(--burgundy-dark);color:#fff}
+.btn.secondary{
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.4);
+}
+.btn.secondary:hover{background:#fff;color:var(--navy)}
+
+/* Columna Derecha: Tema Claro con Sutil Patrón Texturizado */
+.hero-side{
+  background-color: var(--paper);
+  background-image: radial-gradient(var(--line) 1.2px, transparent 1.2px);
+  background-size: 20px 20px;
+  padding: 64px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 1px solid var(--line);
+}
+.hero-side .biglabel{
+  font-family: "Space Grotesk";
+  font-size: 32px;
+  line-height: 1.12;
+  letter-spacing: -.04em;
+  margin-bottom: 18px;
+  color: var(--navy);
+}
+.hero-side p{color:var(--muted);line-height:1.7;font-size:14px;max-width:390px;margin:0}
+.hero-side ul{list-style:none;padding:0;margin:28px 0 0;border-top:1px solid var(--line)}
 .hero-side li{padding:13px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;font-size:13px}
 .hero-side li span:last-child{color:var(--burgundy);font-weight:700}
 
-/* TRABAJO HOME */
-.section{padding:75px 0}
+/* =======================================================
+   GRILLA DE PROYECTOS (TAMAÑOS UNIFORMES Y SIN DISTORSIÓN)
+======================================================= */
+.section{padding:50px 0}
 .section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:28px}
 .eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--burgundy);font-weight:700}
-h2{font-family:"Space Grotesk";font-weight:600;font-size:46px;letter-spacing:-.06em;margin:8px 0 0;color:var(--navy)}
+h2{font-family:"Space Grotesk";font-weight:600;font-size:38px;letter-spacing:-.05em;margin:8px 0 0;color:var(--navy)}
 .smallnote{font-size:12px;color:var(--muted)}
 
-.feature{display:grid;grid-template-columns:1.5fr .5fr;min-height:480px;background:var(--paper);border:1px solid var(--line);overflow:hidden;cursor:pointer;transition:.25s ease}
-.feature:hover{border-color:var(--burgundy);box-shadow:0 20px 40px rgba(94,13,45,.08)}
-.feature-media{min-height:480px;position:relative;background:#eee}
-.feature-media:after{content:"01";position:absolute;left:20px;top:20px;color:#fff;background:var(--burgundy);padding:7px 11px;font:700 11px "Space Grotesk"}
-.feature-info{padding:42px 38px;display:flex;flex-direction:column;justify-content:space-between}
-.feature-info h3{font-family:"Space Grotesk";font-size:36px;line-height:1;letter-spacing:-.05em;margin:0 0 16px;color:var(--navy)}
-.feature-info p{color:var(--muted);font-size:14px;line-height:1.65}
-.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:24px}
-.tag{border:1px solid var(--line);padding:6px 10px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;background:var(--bg)}
-.view{font-size:13px;font-weight:700;display:inline-flex;gap:10px;align-items:center;color:var(--burgundy)}
+.work-grid-uniform{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
+  gap: 26px;
+}
 
-.work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
-.project{background:var(--paper);border:1px solid var(--line);overflow:hidden;transition:.25s ease;cursor:pointer}
-.project:hover{transform:translateY(-4px);border-color:var(--navy);box-shadow:0 18px 40px rgba(26,38,54,.1)}
-.project:nth-child(1){grid-column:span 7}.project:nth-child(2){grid-column:span 5}
-.project:nth-child(3){grid-column:span 5}.project:nth-child(4){grid-column:span 7}
-.project:nth-child(5){grid-column:span 12}
-.project-media{height:340px;background:#eee;position:relative;overflow:hidden}
-.project-media img{transition:transform .5s ease}
-.project:hover .project-media img{transform:scale(1.03)}
-.project-info{padding:22px 24px;display:grid;grid-template-columns:1fr auto;gap:7px}
-.project-info h3{font-family:"Space Grotesk";font-size:22px;letter-spacing:-.04em;margin:0;color:var(--navy)}
-.project-info p{grid-column:1;color:var(--muted);font-size:13px;margin:4px 0 0;line-height:1.5}
-.project-info .arrow{grid-column:2;grid-row:1/3;color:var(--burgundy);font-size:22px}
+.project-card{
+  background: var(--paper);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+.project-card:hover{
+  transform: translateY(-4px);
+  border-color: var(--burgundy);
+  box-shadow: 0 16px 36px rgba(26,38,54,.08);
+}
 
-/* PERFIL & CONTACTO */
-.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.about-copy{font-size:19px;line-height:1.7;color:var(--navy);margin:0}
-.about-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);margin-top:34px;border:1px solid var(--line)}
+/* Miniaturas sin recortar, sin estirar ni pixelar */
+.card-media{
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #0b1017;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.card-media img{
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform .4s ease;
+}
+.project-card:hover .card-media img{
+  transform: scale(1.025);
+}
+
+.card-info{
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  border-top: 1px solid var(--line);
+}
+.card-info h3{
+  font-family: "Space Grotesk";
+  font-size: 20px;
+  letter-spacing: -.03em;
+  margin: 0 0 8px;
+  color: var(--navy);
+}
+.card-info p{
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0 0 16px;
+  line-height: 1.55;
+}
+.card-meta-action{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--burgundy);
+  padding-top: 12px;
+  border-top: 1px dashed var(--line);
+}
+
+/* =======================================================
+   PERFIL Y SECCIÓN FINAL (TAMAÑO SINCRONIZADO)
+======================================================= */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:70px 0}
+.about-copy{font-size:18px;line-height:1.7;color:var(--navy);margin:0}
+.about-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);margin-top:30px;border:1px solid var(--line)}
 .about-grid div{background:var(--paper);padding:22px}
 .about-grid strong{display:block;font-size:14px;margin-bottom:6px;color:var(--burgundy)}
 .about-grid span{font-size:13px;color:var(--muted);line-height:1.5;display:block}
-.contact{padding:100px 0 80px}
-.contact h2{font-size:clamp(50px,7vw,95px);line-height:.92;max-width:900px;color:var(--navy-dark)}
-.contact-row{display:flex;justify-content:space-between;align-items:end;border-top:1px solid var(--line);margin-top:48px;padding-top:24px}
+
+/* Sección de llamada a la acción con tipografía vinculada a h1 */
+.contact{padding:90px 0 70px}
+.contact-cta-title{
+  font-family: "Space Grotesk";
+  font-size: clamp(38px, 4.5vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -.05em;
+  max-width: 860px;
+  color: var(--navy);
+  margin: 12px 0 0;
+  font-weight: 700;
+}
+
+.contact-row{display:flex;justify-content:space-between;align-items:end;border-top:1px solid var(--line);margin-top:44px;padding-top:24px}
 .contact-row p{margin:0;color:var(--muted);font-size:13px}
 .contact-links{display:flex;gap:24px;font-size:13px;font-weight:600}
 .contact-links a:hover{color:var(--burgundy)}
 footer{border-top:1px solid var(--line);padding:26px 0;display:flex;justify-content:space-between;font-size:12px;color:var(--muted);background:var(--paper)}
 
 /* =======================================================
-   ESTRUCTURA DE PÁGINA INTERNA ESTILO BEHANCE
+   VISTA INTERNA ESTILO BEHANCE
 ======================================================= */
-#project-view{display:none;background:#f3f4f6;min-height:100vh}
+#project-view{display:none;background:#f3f5f8;min-height:100vh}
 .behance-bar{background:var(--paper);border-bottom:1px solid var(--line);padding:14px 34px;position:sticky;top:0;z-index:99;display:flex;justify-content:space-between;align-items:center}
 .back-btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--burgundy);cursor:pointer}
 .back-btn:hover{color:var(--burgundy-dark)}
-.behance-bar-title{font-family:"Space Grotesk";font-weight:700;font-size:16px;color:var(--navy)}
+.behance-bar-title{font-family:"Space Grotesk";font-weight:700;font-size:15px;color:var(--navy)}
 
-.b-hero-cover{width:100%;height:65vh;min-height:420px;background:var(--navy);position:relative}
-.b-hero-cover img{width:100%;height:100%;object-fit:cover;opacity:.9}
+/* Portada interna contenida y respetuosa con el titular original */
+.b-hero-cover{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 540px;
+  background: #0b1017;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.b-hero-cover img{
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
 
 .b-layout{max-width:1200px;margin:40px auto;padding:0 24px;display:grid;grid-template-columns:320px 1fr;gap:40px;align-items:start}
 .b-meta{background:var(--paper);padding:30px;border:1px solid var(--line);position:sticky;top:100px}
-.b-meta h1{font-size:32px;line-height:1.1;margin:0 0 16px;color:var(--navy);letter-spacing:-.04em}
+.b-meta h1{font-size:28px;line-height:1.15;margin:0 0 16px;color:var(--navy);letter-spacing:-.04em}
 .b-meta-category{color:var(--burgundy);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
 .b-meta p{font-size:14px;line-height:1.6;color:var(--muted);margin:0 0 24px}
 .b-spec{border-top:1px solid var(--line);padding:12px 0;display:flex;flex-direction:column;gap:3px;font-size:12px}
 .b-spec strong{color:var(--navy);text-transform:uppercase;font-size:11px;letter-spacing:.05em}
 .b-spec span{color:var(--muted)}
 
-/* Muro vertical continuo estilo Behance */
-.b-content-feed{display:flex;flex-direction:column;gap:30px}
+.b-content-feed{display:flex;flex-direction:column;gap:28px}
 .b-block{background:var(--paper);border:1px solid var(--line);overflow:hidden}
-.b-block img{width:100%;height:auto;display:block}
-.b-caption{padding:20px 24px;font-size:14px;color:var(--muted);border-top:1px solid var(--line);line-height:1.6;background:#fafafa}
+.b-block .img-box{
+  width: 100%;
+  background: #0f141c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.b-block .img-box img{
+  width: 100%;
+  height: auto;
+  max-height: 800px;
+  object-fit: contain;
+}
+.b-caption{padding:18px 24px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);line-height:1.6;background:#fafafa}
 .b-caption strong{color:var(--navy)}
 
-.b-footer-nav{border-top:1px solid var(--line);background:var(--paper);padding:50px 0;margin-top:60px;text-align:center}
+.b-footer-nav{border-top:1px solid var(--line);background:var(--paper);padding:46px 0;margin-top:60px;text-align:center}
 
 @media(max-width:960px){
+  .hero-wrapper{grid-template-columns:1fr;margin:20px 0 40px}
+  .hero-side{border-left:0;border-top:1px solid var(--line);padding:40px 30px}
+  .hero-main{padding:48px 30px}
   .b-layout{grid-template-columns:1fr;gap:24px}
   .b-meta{position:static}
-  .hero{grid-template-columns:1fr;padding:50px 0}
-  .hero-side{border-left:0;border-top:2px solid var(--burgundy);padding:28px 0 0}
-  .feature{grid-template-columns:1fr}.feature-media{min-height:300px}
-  .project:nth-child(n){grid-column:span 12}
   .about{grid-template-columns:1fr;gap:30px}
+  .work-grid-uniform{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
-<!-- VISTA PRINCIPAL (HOME) -->
+<!-- =======================================================
+     VISTA PRINCIPAL (HOME)
+======================================================= -->
 <div id="main-view">
   <div class="container">
     <header>
@@ -157,139 +395,170 @@ footer{border-top:1px solid var(--line);padding:26px 0;display:flex;justify-cont
       <div class="status"><i class="dot"></i> Disponible para proyectos</div>
     </header>
 
-    <section class="hero">
-      <div>
-        <div class="kicker">Diseñadora gráfica · E-learning · Multimedia</div>
-        <h1>Tatiana<br>Ramírez.</h1>
-        <p class="hero-copy">Diseño experiencias visuales, contenidos educativos y piezas multimedia donde la pedagogía, la interactividad y la composición visual trabajan en equilibrio.</p>
-        <div class="hero-links">
-          <a class="btn" href="#work">Explorar proyectos ↓</a>
-          <a class="btn secondary" href="https://www.behance.net/ratik" target="_blank">Behance oficial ↗</a>
+    <!-- HERO SECTION MODIFICADA -->
+    <div class="hero-wrapper">
+      <!-- Sección izquierda oscura con Motion Graphics y escala ajustada -->
+      <section class="hero-main">
+        <!-- Elementos flotantes vectoriales representativos de animación / motion -->
+        <div class="motion-elem m-circle"></div>
+        <div class="motion-elem m-ring"></div>
+        <div class="motion-elem m-triangles">
+          <div class="m-tri"></div>
+          <div class="m-tri"></div>
+          <div class="m-tri"></div>
         </div>
-      </div>
+        <div class="motion-elem m-line-node">
+          <div class="h-line"></div>
+          <div class="h-diamond"></div>
+        </div>
+
+        <div class="hero-content">
+          <div class="kicker">Diseño gráfico · E-learning · Multimedia</div>
+          <h1 class="hero-title">Tatiana<br>Ramírez.</h1>
+          <p class="hero-copy">Especialista en estructuración visual y didáctica de contenidos, campus virtuales, entornos multimedia y gráficos en movimiento orientados a la educación.</p>
+          <div class="hero-links">
+            <a class="btn" href="#work">Explorar proyectos ↓</a>
+            <a class="btn secondary" href="https://www.behance.net/ratik" target="_blank">Behance oficial ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección derecha con diferenciación cromática sutil y fondo gráfico punteado -->
       <aside class="hero-side">
         <div class="biglabel">Diseño que<br>comunica.</div>
-        <p>Especializada en la diagramación de ambientes virtuales de aprendizaje, campus institucionales, narrativa interactiva y diseño audiovisual.</p>
+        <p>Integración armónica entre pedagogía, narrativa multimedia y consistencia de marca institucional en plataformas LMS y entornos digitales.</p>
         <ul>
-          <li><span>E-learning & Ambientes Virtuales</span><span>01</span></li>
-          <li><span>Diseño multimedia & UI/UX</span><span>02</span></li>
-          <li><span>Motion graphics & Audiovisual</span><span>03</span></li>
+          <li><span>E-learning & Campus Virtuales</span><span>01</span></li>
+          <li><span>Recursos interactivos & UI/UX</span><span>02</span></li>
+          <li><span>Motion graphics & Edición audiovisual</span><span>03</span></li>
           <li><span>Gran formato e ilustración</span><span>04</span></li>
         </ul>
       </aside>
-    </section>
+    </div>
 
+    <!-- SECCIÓN DE PROYECTOS (TARJETAS UNIFORMES) -->
     <section id="work" class="section">
       <div class="section-head">
         <div>
           <div class="eyebrow">01 / Selección de proyectos</div>
           <h2>Trabajo seleccionado</h2>
         </div>
-        <div class="smallnote">Diagramación interna estilo Behance</div>
+        <div class="smallnote">Proporción uniforme sin cortes de miniatura</div>
       </div>
 
-      <!-- Feature: Universidad Libre -->
-      <div class="feature" onclick="loadProject('unilibre')">
-        <div class="feature-media">
-          <img src="https://mir-s3-cdn-cf.behance.net/projects/404/e5ba82255785373.Y3JvcCwxMDg2LDg0OSwwLDA.jpg" alt="Universidad Libre — Campus Virtual">
-        </div>
-        <div class="feature-info">
-          <div>
-            <div class="eyebrow">Proyecto 01</div>
-            <h3>Universidad Libre</h3>
-            <p>Diagramación y conceptualización de asignaturas completas para el Campus Virtual UniLibre. Enfoque integral en eLearning, consistencia de marca y usabilidad UI/UX para el estudiante.</p>
-            <div class="tags">
-              <span class="tag">Campus virtual</span>
-              <span class="tag">eLearning</span>
-              <span class="tag">UI/UX</span>
+      <div class="work-grid-uniform">
+        <!-- 01 UniLibre -->
+        <div class="project-card" onclick="loadProject('unilibre')">
+          <div class="card-media">
+            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/e5ba82255785373.Y3JvcCwxMDg2LDg0OSwwLDA.jpg" alt="Universidad Libre — Campus Virtual">
+          </div>
+          <div class="card-info">
+            <div>
+              <h3>Universidad Libre</h3>
+              <p>Diagramación y conceptualización de asignaturas completas para el Campus Virtual UniLibre. Enfoque en eLearning y UX.</p>
+            </div>
+            <div class="card-meta-action">
+              <span>Campus Virtual / UI</span>
+              <span>Abrir proyecto →</span>
             </div>
           </div>
-          <div class="view">Ver presentación del proyecto <span class="arrow">→</span></div>
         </div>
-      </div>
-    </section>
 
-    <section class="section" style="padding-top:0">
-      <div class="work-grid">
         <!-- 02 Unisanitas -->
-        <div class="project" onclick="loadProject('unisanitas')">
-          <div class="project-media">
+        <div class="project-card" onclick="loadProject('unisanitas')">
+          <div class="card-media">
             <img src="https://mir-s3-cdn-cf.behance.net/projects/404/5cecd4244730815.Y3JvcCw0NzIsMzY5LDM1NywxNDI.jpg" alt="Unisanitas Medios Educativos">
           </div>
-          <div class="project-info">
+          <div class="card-info">
             <div>
               <h3>Unisanitas Medios Educativos</h3>
-              <p>Desarrollo visual para Moodle, módulos Articulate Storyline, recursos interactivos y piezas de apoyo.</p>
+              <p>Diseño digital para Moodle, Articulate Storyline, mailing, infografías vectoriales y recursos interactivos.</p>
             </div>
-            <span class="arrow">→</span>
+            <div class="card-meta-action">
+              <span>Medios Educativos</span>
+              <span>Abrir proyecto →</span>
+            </div>
           </div>
         </div>
 
         <!-- 03 AVA EAN -->
-        <div class="project" onclick="loadProject('ean')">
-          <div class="project-media">
+        <div class="project-card" onclick="loadProject('ean')">
+          <div class="card-media">
             <img src="https://mir-s3-cdn-cf.behance.net/projects/404/b2419a242146511.Y3JvcCwxMDMzLDgwOCwyNSwyMA.jpg" alt="Diseño para Ambientes Virtuales de Aprendizaje">
           </div>
-          <div class="project-info">
+          <div class="card-info">
             <div>
               <h3>Ambientes Virtuales de Aprendizaje</h3>
-              <p>Universidad EAN · Producción y estandarización en H5P, Genially y recursos nativos en Canvas.</p>
+              <p>Universidad EAN · Producción de módulos con integración directa de H5P, Genially y Canvas LMS.</p>
             </div>
-            <span class="arrow">→</span>
+            <div class="card-meta-action">
+              <span>Canvas LMS / H5P</span>
+              <span>Abrir proyecto →</span>
+            </div>
           </div>
         </div>
 
         <!-- 04 Gran Formato -->
-        <div class="project" onclick="loadProject('granformato')">
-          <div class="project-media">
+        <div class="project-card" onclick="loadProject('granformato')">
+          <div class="card-media">
             <img src="https://mir-s3-cdn-cf.behance.net/projects/404/2c26c2238376381.Y3JvcCwxMTgwLDkyMiw4LDA.jpg" alt="Gran Formato">
           </div>
-          <div class="project-info">
+          <div class="card-info">
             <div>
-              <h3>Gran Formato & Ilustración</h3>
-              <p>Composiciones monumentales, tifos para estadio y arte gráfico vectorial de alta escala.</p>
+              <h3>Gran Formato</h3>
+              <p>Ilustración vectorial a escala monumental para tifos deportivos y ambientación visual de estadio.</p>
             </div>
-            <span class="arrow">→</span>
+            <div class="card-meta-action">
+              <span>Ilustración / Escala</span>
+              <span>Abrir proyecto →</span>
+            </div>
           </div>
         </div>
 
-        <!-- 05 Motion & GUI -->
-        <div class="project" onclick="loadProject('motion')">
-          <div class="project-media">
+        <!-- 05 Motion Reels -->
+        <div class="project-card" onclick="loadProject('motion')">
+          <div class="card-media">
             <img src="https://mir-s3-cdn-cf.behance.net/projects/404/86c53877828995.Y3JvcCw0MDQsMzE2LDIwMSwxMjk.jpg" alt="Reels y Motion Graphics">
           </div>
-          <div class="project-info">
+          <div class="card-info">
             <div>
               <h3>Reels & Motion Graphics</h3>
-              <p>Cápsulas animadas en After Effects y piezas pedagógicas audiovisuales con animación interactiva.</p>
+              <p>Animación y gráfica en movimiento en After Effects y Cinema 4D para contenidos formativos y promocionales.</p>
             </div>
-            <span class="arrow">→</span>
+            <div class="card-meta-action">
+              <span>After Effects / 2D</span>
+              <span>Abrir proyecto →</span>
+            </div>
           </div>
         </div>
 
         <!-- 06 Demo Ayuda GUI -->
-        <div class="project" onclick="loadProject('gui')">
-          <div class="project-media">
+        <div class="project-card" onclick="loadProject('gui')">
+          <div class="card-media">
             <img src="https://mir-s3-cdn-cf.behance.net/projects/404/558f5f71866327.Y3JvcCw4MDgsNjMyLDAsMA.png" alt="Demo Ayuda GUI">
           </div>
-          <div class="project-info">
+          <div class="card-info">
             <div>
               <h3>Demo Ayuda GUI</h3>
-              <p>Arquitectura de información visual, layout de interfaz educativa y prototipado funcional.</p>
+              <p>Arquitectura visual de navegación e interfaz para sistemas interactivos y tutoriales de orientación.</p>
             </div>
-            <span class="arrow">→</span>
+            <div class="card-meta-action">
+              <span>UI / Interactividad</span>
+              <span>Abrir proyecto →</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- SECCIÓN PERFIL -->
     <section id="perfil" class="section about">
       <div>
         <div class="eyebrow">02 / Perfil</div>
-        <h2>Entre lo visual y lo pedagógico.</h2>
+        <h2>Entre lo visual y lo educativo.</h2>
       </div>
       <div>
-        <p class="about-copy">Diseñadora gráfica con sólida experiencia articulando pedagogía y estética visual. El objetivo central es estructurar la información compleja para transformarla en piezas instruccionales nítidas, usables e interactivas.</p>
+        <p class="about-copy">Diseñadora gráfica con sólida trayectoria articulando pedagogía y estética visual. El propósito central es estructurar información compleja para transformarla en piezas instruccionales nítidas, funcionales e interactivas.</p>
         <div class="about-grid">
           <div>
             <strong>E-learning & LMS</strong>
@@ -311,9 +580,10 @@ footer{border-top:1px solid var(--line);padding:26px 0;display:flex;justify-cont
       </div>
     </section>
 
+    <!-- SECCIÓN DE ACCIÓN (CON TIPOGRAFÍA DEL MISMO TAMAÑO DEL NOMBRE) -->
     <section id="contacto" class="contact">
       <div class="eyebrow">03 / Contacto</div>
-      <h2>Construyamos proyectos de alto impacto.</h2>
+      <h2 class="contact-cta-title">Construyamos proyectos de alto impacto.</h2>
       <div class="contact-row">
         <p>Bogotá, Colombia · Disponible para proyectos remotos e institucionales</p>
         <div class="contact-links">
@@ -341,12 +611,13 @@ footer{border-top:1px solid var(--line);padding:26px 0;display:flex;justify-cont
     <div style="width:70px"></div>
   </div>
 
+  <!-- Portada interna contenida y protegida de recortes -->
   <div class="b-hero-cover" id="p-hero">
     <img id="p-cover-img" src="" alt="Portada del proyecto">
   </div>
 
   <div class="b-layout">
-    <!-- Columna Ficha Lateral -->
+    <!-- Columna Ficha Técnica Lateral -->
     <aside class="b-meta">
       <div class="b-meta-category" id="p-category">E-LEARNING / UI DESIGN</div>
       <h1 id="p-title">Universidad Libre</h1>
@@ -368,21 +639,21 @@ footer{border-top:1px solid var(--line);padding:26px 0;display:flex;justify-cont
       <button class="btn" style="width:100%;margin-top:24px;justify-content:center" onclick="showHome()">Volver al listado</button>
     </aside>
 
-    <!-- Muro de Contenido Vertical Continuo (Flujo Behance) -->
+    <!-- Feed continuo vertical estilo Behance -->
     <main class="b-content-feed" id="p-feed">
-      <!-- Los bloques se inyectan dinámicamente vía JavaScript -->
+      <!-- Inyección dinámica vía JavaScript -->
     </main>
   </div>
 
   <div class="b-footer-nav">
-    <div class="eyebrow" style="margin-bottom:12px">Siguiente paso</div>
-    <h3 style="font-family:'Space Grotesk';font-size:28px;margin:0 0 20px;color:var(--navy)">¿Quieres revisar más proyectos?</h3>
+    <div class="eyebrow" style="margin-bottom:12px">Exploración continua</div>
+    <h3 style="font-family:'Space Grotesk';font-size:26px;margin:0 0 20px;color:var(--navy)">¿Deseas conocer más casos de estudio?</h3>
     <button class="btn" onclick="showHome()">Explorar todos los proyectos</button>
   </div>
 </div>
 
 <script>
-// Base de datos de proyectos internos (sin dependencias externas)
+// Base de datos de proyectos internos
 const projectsData = {
   unilibre: {
     title: "Universidad Libre — Campus Virtual",
@@ -440,7 +711,7 @@ const projectsData = {
     tools: "Adobe Illustrator, Photoshop",
     focus: "Impacto visual y arte a gran escala",
     cover: "https://mir-s3-cdn-cf.behance.net/projects/404/2c26c2238376381.Y3JvcCwxMTgwLDkyMiw4LDA.jpg",
-    desc: "Piezas de diseño e ilustración adaptadas a escalas colosales (tifos y estadios). Cuidado riguroso del detalle anatómico, la proporción arquitectónica y la traslación de vectores a lienzos de tela gigantescos.",
+    desc: "Piezas de diseño e ilustración adaptadas a escalas monumentales (tifos y estadios). Cuidado riguroso del detalle anatómico, la proporción arquitectónica y la traslación de vectores a lienzos de tela de gran escala.",
     blocks: [
       {
         img: "https://mir-s3-cdn-cf.behance.net/projects/404/2c26c2238376381.Y3JvcCwxMTgwLDkyMiw4LDA.jpg",
@@ -494,7 +765,7 @@ function loadProject(key) {
   document.getElementById('p-year').innerText = data.focus;
   document.getElementById('p-cover-img').src = data.cover;
 
-  // Construir feed vertical estilo Behance
+  // Renderizar bloques tipo Behance
   const feed = document.getElementById('p-feed');
   feed.innerHTML = '';
 
@@ -502,13 +773,13 @@ function loadProject(key) {
     const div = document.createElement('div');
     div.className = 'b-block';
     div.innerHTML = `
-      <img src="${block.img}" alt="${data.title}">
+      <div class="img-box"><img src="${block.img}" alt="${data.title}"></div>
       <div class="b-caption">${block.caption}</div>
     `;
     feed.appendChild(div);
   });
 
-  // Alternar vista
+  // Alternar visibilidad
   document.getElementById('main-view').style.display = 'none';
   document.getElementById('project-view').style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'instant' });
